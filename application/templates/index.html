@@ -1,26 +1,8 @@
 {% extends 'layout.html' %}
 {% block body_content %}
-    <br>
-    <br>
-    You have completed {{ totals['total_completed'] }} out of {{ totals['total'] }} todos.
-
-    {% if totals['total'] == 0 %}
-       
-        <h3>Add some todos</h3>
-    
-    {% elif totals['total_completed'] == totals['total'] %}
-
-        <h3>Good Job!</h3>
-    
-    {% elif totals['total_completed'] <= totals['total'] - 3 %}
-
-        <h3>You're falling behind!</h3>
-
-    {% endif %}
-
     <div>
         <form action="{{ url_for('index') }}" method='POST'>
-            {{ form.order_with }}
+            {{ form.order }}
             {{ form.submit }}
         </form>
         {% for todo in todos %}
